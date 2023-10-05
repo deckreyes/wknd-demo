@@ -12,7 +12,7 @@
       "id": "asset-library",
       "title": "My Assets",
       "environments": [ "edit" ],
-      "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html?repository-id=author-p46802-e227673.adobeaemcloud.com",
+      "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html?repository-id=author-p106106-e991311.adobeaemcloud.com",
       "isPalette": true,
       "includePaths": [ "**.docx**" ],
       "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:800px; height: calc(100vh - 60px)"
