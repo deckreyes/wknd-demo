@@ -20,6 +20,17 @@ export function getAllMetadata(scope) {
     }, {});
 }
 
+// Define an execution context
+const pluginContext = {
+  getAllMetadata,
+  getMetadata,
+  loadCSS,
+  loadScript,
+  sampleRUM,
+  toCamelCase,
+  toClassName,
+};
+
 import {
   sampleRUM,
   buildBlock,
@@ -205,6 +216,14 @@ async function loadEager(doc) {
     await runExperiment(experiment, instantExperiment, EXPERIMENTATION_CONFIG);
   }
 
+  if (getMetadata('experiment')
+  || Object.keys(getAllMetadata('campaign')).length
+  || Object.keys(getAllMetadata('audience')).length) {
+  // eslint-disable-next-line import/no-relative-packages
+  const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
+  await runEager(document, { audiences: AUDIENCES }, pluginContext);
+}
+
   // load demo config
   await loadDemoConfig();
 
@@ -285,6 +304,14 @@ async function loadLazy(doc) {
   // eslint-disable-next-line import/no-relative-packages
   const { initConversionTracking } = await import('../plugins/rum-conversion/src/index.js');
   await initConversionTracking.call(context, document);
+
+  if ((getMetadata('experiment')
+    || Object.keys(getAllMetadata('campaign')).length
+    || Object.keys(getAllMetadata('audience')).length)) {
+    // eslint-disable-next-line import/no-relative-packages
+    const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
+    await runLazy(document, { audiences: AUDIENCES }, pluginContext);
+  }
 }
 
 /**
