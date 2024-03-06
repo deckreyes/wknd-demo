@@ -25,9 +25,9 @@ const pluginContext = {
   getAllMetadata,
   getMetadata,
   loadCSS,
-  loadScript,
+  //loadScript,
   sampleRUM,
-  toCamelCase,
+  //toCamelCase,
   toClassName,
 };
 
