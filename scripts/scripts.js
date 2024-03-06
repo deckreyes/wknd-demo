@@ -23,11 +23,6 @@ import {
   setupAnalyticsTrackingWithAlloy,
 } from './analytics/lib-analytics.js';
 
-window.hlx.plugins.add('rum-conversion', {
-  url: '/plugins/rum-conversion/src/index.js',
-  load: 'lazy',
-});
-
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
 
