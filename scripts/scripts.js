@@ -1,3 +1,8 @@
+window.hlx.plugins.add('rum-conversion', {
+  url: '/plugins/rum-conversion/src/index.js',
+  load: 'lazy',
+});
+
 import {
   sampleRUM,
   buildBlock,
