@@ -679,14 +679,14 @@ export async function loadLazy(document, options, context) {
     ...(options || {}),
   };
   // do not show the experimentation pill on prod domains
-  if (window.location.hostname.endsWith('.live')
-    || (typeof options.isProd === 'function' && options.isProd())
-    || (options.prodHost
-        && (options.prodHost === window.location.host
-          || options.prodHost === window.location.hostname
-          || options.prodHost === window.location.origin))) {
-    return;
-  }
+  //if (window.location.hostname.endsWith('.live')
+  //  || (typeof options.isProd === 'function' && options.isProd())
+  //  || (options.prodHost
+  //      && (options.prodHost === window.location.host
+  //        || options.prodHost === window.location.hostname
+  //        || options.prodHost === window.location.origin))) {
+  //  return;
+  //}
   // eslint-disable-next-line import/no-cycle
   const preview = await import('./preview.js');
   preview.default(document, pluginOptions, { ...context, getResolvedAudiences });
