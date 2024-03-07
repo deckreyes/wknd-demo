@@ -297,7 +297,7 @@ async function loadLazy(doc) {
   // eslint-disable-next-line import/no-relative-packages
   const { initConversionTracking } = await import('../plugins/rum-conversion/src/index.js');
   await initConversionTracking.call(context, document);
-}
+
 
 /**
  * loads everything that happens a lot later, without impacting
