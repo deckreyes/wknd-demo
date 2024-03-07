@@ -18,8 +18,8 @@ import {
   toCamelCase,
   toClassName,
   waitForLCP,
-} from './aem.js';
-import initializeDropins from './dropins.js';
+} from './lib-franklin.js';
+
 
 // Define an execution context
 const pluginContext = {
