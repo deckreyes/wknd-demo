@@ -23,8 +23,19 @@ import {
   setupAnalyticsTrackingWithAlloy,
 } from './analytics/lib-analytics.js';
 
+// Define an execution context
+const pluginContext = {
+  getAllMetadata,
+  getMetadata,
+  loadCSS,
+  //loadScript,
+  sampleRUM,
+  //toCamelCase,
+  toClassName,
+};
+
 const LCP_BLOCKS = []; // add your LCP blocks to the list
-window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
+//window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
 
 // Define the custom audiences mapping for experimentation
 const EXPERIMENTATION_CONFIG = {
