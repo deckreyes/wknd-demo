@@ -210,7 +210,6 @@ async function decorateTemplates(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
-  initializeDropins();
   decorateTemplateAndTheme();
 
   await window.hlx.plugins.run('loadEager', pluginContext);
