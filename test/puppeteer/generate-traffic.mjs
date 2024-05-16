@@ -30,7 +30,7 @@ if (!WKND_URL) {
   for (let i = 0; i < ITERATIONS; i++) {
 
     // First, click through the different sections of the site
-    const headerLinks = ["/magazine", "/adventures", "/faqs", "/about-us"];
+    const headerLinks = ["/en/faq/", "/en/about-us/"];
     for (const link of headerLinks) {
       // Wait for the page to load, click the next link, then repeat
       const linkSelector = `a[href='${link}']`;
@@ -39,18 +39,12 @@ if (!WKND_URL) {
     }
 
     // Navigate to the top level page
-    const headerLink = ".nav-brand a[href='/']"
-    await page.waitForSelector(headerLink);
-    await page.click(headerLink);
-
-    // Wait for the "conversion" button to appear, then click it
-    const linkWithConversionTracking = "a.button.primary[href='/adventures']"
-    await page.waitForSelector(linkWithConversionTracking);
-    await page.click(linkWithConversionTracking);
+    const url = WKND_URL;     
+    await page.goto(`${url}`,  { waitUntil: "networkidle2" });  
 
     // Wait for the header to reappear, then click it to return back to the top level page
-    await page.waitForSelector(headerLink);
-    await page.click(headerLink);
+    //await page.waitForSelector(headerLink);
+    //await page.click(headerLink);
 
   }
 
